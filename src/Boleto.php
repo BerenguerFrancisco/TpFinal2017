@@ -16,7 +16,7 @@ class boleto {
         $this->linea=$l;
         $this->id=$i;
     }
-    public function mostrarDatos {
+    public function imprimirBoleto {
         
         echo "<li> Fecha: ".$this->fecha;
         echo "<li> Viaje ".$this->tipo;
@@ -24,7 +24,4 @@ class boleto {
         echo "<li> Linea: ".$this->linea;
         echo "<li> Id tarjeta: ".$this->id;
     } 
-    
-    
-    }
 }
