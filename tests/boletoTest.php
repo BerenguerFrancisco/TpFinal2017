@@ -7,6 +7,6 @@ class EstacionTest extends TestCase {
      */
     public function testTipoCorrecto() {
         $boleto = new boleto('11/04/17','Plus',200,'144 Negro',1202010);
-        $this->assertContains($boleto->tipo, ['Normal', 'Plus', 'Medio']);
+        $this->assertContains($boleto->tipo, ['Normal', 'Plus', 'Medio','Trasbordo','Medio Trasbordo']);
     }
 }
