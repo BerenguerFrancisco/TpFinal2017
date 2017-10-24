@@ -1,3 +1,7 @@
+<?php
+namespace TpFinal;
+use PHPUnit\Framework\TestCase;
+
 $lineas = [
 '101',
 '102',
@@ -48,3 +52,13 @@ $lineas = [
 'SUR',
 'CENTRO',
 ];
+
+class colectivoTest extends TestCase {
+    /**
+     * Comprueba que los datos del colectivo sean correcto
+     */
+    public function testTipoCorrecto() {
+        $bondi = new colectivo('144');
+        $this->assertContains($bondi->linea,$lineas);
+    }
+}
