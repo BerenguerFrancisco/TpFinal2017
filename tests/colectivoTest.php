@@ -57,7 +57,7 @@ class colectivoTest extends TestCase {
     /**
      * Comprueba que los datos del colectivo sean correcto
      */
-    public function testTipoCorrecto() {
+    public function testLineaCorrecta() {
         $bondi = new colectivo('144');
         $this->assertContains($bondi->linea,$lineas);
     }
