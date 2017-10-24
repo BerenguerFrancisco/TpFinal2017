@@ -44,7 +44,9 @@ class tarjeta {
            
         }
         else
-        { $this->sa=$this->sa-9.75;
+        { if ($veh instanceof bici)
+            {if 
+          $this->sa=$this->sa-9.75;
         }
     
     
