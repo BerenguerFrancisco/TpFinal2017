@@ -42,7 +42,10 @@ class tarjeta {
             {echo "No tenes más platula ni más viajes plus papu, bajate del colectivo y despedite de tu cuenta\n";
             }
            
-    }
+        }
+        else
+        { $this->sa=$this->sa-9.75;
+        }
     
     
 }
