@@ -1,7 +1,7 @@
 <?php
 namespace TpFinal;
 use PHPUnit\Framework\TestCase;
-class EstacionTest extends TestCase {
+class boletoTest extends TestCase {
     /**
      * Comprueba que los datos del boleto sean correcto
      */
