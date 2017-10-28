@@ -58,14 +58,17 @@ class tarjeta {
                 $this->vp=0; 
                 }
             $this->bol=$this->bol+1;
-            $this->viajesrealizados($this->bol)=new boleto($hor, "normal", $this->sa, $veh->linea, $this->id)    
+            $this->viajesrealizados($this->bol)=new boleto($hor, "normal", $this->sa, $veh->linea, $this->id);    
             }
             if($this->sa<9.75){
                 $this->sa=$this->sa-9.75;
-            if ($this->vp!=2){
-                $this->vp=$this->vp+1; }       
-                $this->bol=$this->bol+1;
-                $this->viajesrealizados($this->bol)=new boleto($hor, "plus", $this->sa, $veh->linea, $this->id)    
+                if ($this->vp!=2){
+                    $this->vp=$this->vp+1;       
+                    $this->bol=$this->bol+1;
+                    $this->viajesrealizados($this->bol)=new boleto($hor, "plus", $this->sa, $veh->linea, $this->id);}
+                else{
+                    echo "No tiene saldo ni viajes plus";    
+                }
             }
             
         }
