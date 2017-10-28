@@ -28,7 +28,7 @@ class viaje {
     public function devolverTransporte() {
           return $this->transporte;
     }
-    public function devolverTransporte() {
+    public function devolverFecha() {
           return $this->fecha;
     }
 }
