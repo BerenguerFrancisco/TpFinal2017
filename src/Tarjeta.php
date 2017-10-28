@@ -7,6 +7,7 @@ class tarjeta {
     public $sa;
     public $vp;
     public $id;
+    public $bol;
     
     public function __construct($id){
         $this->id=$id;
@@ -36,27 +37,34 @@ class tarjeta {
     }
     
     public function pagar($veh,$hor){
-        if ($this->sa<9.75){
-            if($this->vp<2){
-                $this->vp=$this->vp+1;
-            }
-            else
+        if ($veh instanceof bici)
+            {
+            if ($this->sa<9.75){
             {echo "No tenes más platula ni más viajes plus papu, bajate del colectivo y despedite de tu cuenta\n";
             }
-           
+            if ($this->sa>9.75){
+                 $this->sa=$this->sa-9.75;
+            }
         }
-        else
-        { if ($veh instanceof bici)
-            {if 
-          $this->sa=$this->sa-9.75;
-        if ($this->vp==1){
-            $this->sa=$this->sa-9.75;
-            $this->vp=0;
-        }
-        if ($this->vp==2){
-            $this->sa=$this->sa-(9.75*2);
-            $this->vp=0; 
-        }
+        elseif ($veh instanceof colectivo){
+            if($this->sa>9.75){
+                $this->sa=$this->sa-9.75;
+            if ($this->vp==1){
+                $this->sa=$this->sa-9.75;
+                $this->vp=0; }       
+            if ($this->vp==2){
+                $this->sa=$this->sa-(9.75*2);
+                $this->vp=0; 
+                }
+            $this->bol=new boleto($hor, "normal", $this->sa, $veh->linea, $this->id)    
+            }
+            if($this->sa<9.75){
+                $this->sa=$this->sa-9.75;
+            if ($this->vp!=2){
+                $this->vp=$this->vp+1; }       
+            $this->bol=new boleto($hor, "plus", $this->sa, $veh->linea, $this->id)    
+            }
+            
         }
     
     
