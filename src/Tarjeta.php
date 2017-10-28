@@ -6,7 +6,13 @@ class tarjeta {
 
     public $sa;
     public $vp;
+    public $id;
     
+    public function __construct($id){
+        $this->id=$id;
+        $this->sa=0;
+        $this->vp=0;
+    }
     public function saldo() {
         return $this->sa;
     }
