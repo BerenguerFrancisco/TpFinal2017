@@ -10,20 +10,21 @@ class viaje {
         
         $this->tipo=$t;
         $this->idtarjeta=$it;
-        $this->transporte=$trans
+        $this->transporte=$trans;
     }
+    
     public function devolverTipo() {
+        return $this->tipo;
     
     
     }
+    
     public function devolverMonto() {
+          return $this->monto;
     }
+    
     public function devolverTransporte() {
+          return $this->transporte;
     }
- 
-
 }
- tipo(); // Devuelve en colectivo →
-monto(); // Devuelve el monto del viaje →
- tranporte()->nombre(); // Devuelve el nombre de la linea o de la bici →
-que se utilizó
+
