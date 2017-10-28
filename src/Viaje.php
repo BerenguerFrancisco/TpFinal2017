@@ -1,15 +1,19 @@
 
 <?php
 namespace TpFinal;
-class colectivo {
-    public $linea;
-    public $empresa;
-    public function __construct ($l,$e) {
+class viaje {
+    protected $tipo;
+    protected $idtarjeta;
+    protected $transporte;
+    public function __construct ($t,$it,$trans) {
         
-        $this->linea=$l;
+        $this->tipo=$t;
         $this->empresa=$e;
     }
-    public function imprimirLinea {
-        echo "<li> Linea: ".$this->linea;
-    } 
+ 
+
 }
+ $viaje tipo(); // Devuelve en colectivo →
+ $viaje monto(); // Devuelve el monto del viaje →
+ $viaje tranporte()->nombre(); // Devuelve el nombre de la linea o de la bici →
+que se utilizó
