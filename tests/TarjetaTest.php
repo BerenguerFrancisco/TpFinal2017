@@ -10,7 +10,7 @@ class TarjetaTest extends TestCase {
      * Comprueba que el saldo de una tarjeta nueva sea cero.
      */
     public function testSaldoCero() {
-        $tarjeta = new tarjeta;
+        $tarjeta= new tarjeta;
         $this->assertEquals($tarjeta->saldo(), 0);
     }
     
