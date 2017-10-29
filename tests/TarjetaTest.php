@@ -21,7 +21,7 @@ class EstacionTest extends TestCase {
     }
     public function carga332() {
         $tarjeta= new Tarjeta;
-        $tarjeta->cargar(332)
+        $tarjeta->cargar(332);
         $this->assertEquals($tarjeta->saldo(),388);
     }
     
