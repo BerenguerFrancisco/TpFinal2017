@@ -2,7 +2,7 @@
 
 namespace TpFinal;
 
-class tarjeta {
+class Tarjeta {
 
     public $sa;
     public $vp;
