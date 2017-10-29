@@ -4,7 +4,7 @@ namespace TpFinal;
 
 use PHPUnit\Framework\TestCase;
 
-class EstacionTest extends TestCase {
+class TarjetaTest extends TestCase {
 
     /**
      * Comprueba que el saldo de una tarjeta nueva sea cero.
@@ -32,4 +32,5 @@ class EstacionTest extends TestCase {
         $bondi= new Colectivo(144,"Rosariobus");
         $tarjeta->pagar($bondi, "28/10/17 20:35");
         $this->assertEquals($tarjeta->saldo(),$sal-9.75);
+}
 }
