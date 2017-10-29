@@ -60,6 +60,6 @@ class colectivoTest extends TestCase {
     public function testLineaCorrecta() {
         $bondi = new colectivo('144','Rosario BUS');
         $this->assertContains($bondi->linea,$lineas);
-        $this->assertContains($bondi->empresa,('Rosario BUS','EMTR'));
+        $this->assertContains($bondi->empresa,['Rosario BUS','EMTR']);
     }
 }
