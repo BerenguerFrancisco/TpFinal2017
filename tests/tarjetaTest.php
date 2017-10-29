@@ -4,7 +4,7 @@ namespace TpFinal;
 
 use PHPUnit\Framework\TestCase;
 
-class TarjetaTest extends TestCase {
+class tarjetaTest extends TestCase {
 
     /**
      * Comprueba que el saldo de una tarjeta nueva sea cero.
