@@ -8,7 +8,7 @@ class Tarjeta {
     public $vp;
     public $id;
     public $bol;
-    public $viajesrealizados[];
+    public $viajesrealizados;
     
     public function __construct($id){
         $this->id=$id;
