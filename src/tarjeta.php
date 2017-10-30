@@ -1,9 +1,6 @@
 <?php
-
 namespace TpFinal;
-
 class tarjeta {
-
     public $sa;
     public $vp;
     public $id;
@@ -39,9 +36,8 @@ class tarjeta {
     
     public function pagar($veh,$hor){
         if ($veh instanceof bici)
-            {
-            if ($this->sa<9.75){
-            {echo "No tenes más platula ni más viajes plus papu, bajate del colectivo y despedite de tu cuenta\n";
+            {if ($this->sa<9.75){
+                echo "No tenes más platula ni más viajes plus papu, bajate del colectivo y despedite de tu cuenta\n";
             }
             if ($this->sa>9.75){
                  $this->sa=$this->sa-9.75;
@@ -73,6 +69,5 @@ class tarjeta {
             
         }
     
-    
-}
+    }
 }
