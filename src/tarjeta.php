@@ -40,7 +40,7 @@ class tarjeta {
         $fec = strtotime($fec);
         if ($veh instanceof bici)
             {if ($this->sa<14.625){
-                echo "No tenes más platula ni más viajes plus papu, bajate del colectivo y despedite de tu cuenta\n";
+                return "Out of money";
             }
             if ($this->sa>14.625){
                 if(($fec-$this->dia)>86400){
@@ -92,7 +92,7 @@ class tarjeta {
                     $this->coldia=$fec;
                 }
                 elseif($this->sa <3.20 && $this->vp==2){
-                    echo "No tiene suficiente saldo ni viajes plus";
+                    return "Out of money";
                 }
                 else{
                     $this->sa = $this->sa - 3.20;
@@ -108,7 +108,7 @@ class tarjeta {
                     $this->coldia=$fec;
                 }
                 elseif($this->sa < 9.75 && $this->vp==2){
-                    echo "No tiene suficiente saldo ni viajes plus";
+                    return "Out of money";
                 }
                 else{
                     $this->sa = $this->sa-9.75;
