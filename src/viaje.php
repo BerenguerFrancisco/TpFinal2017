@@ -1,6 +1,6 @@
-
 <?php
 namespace TpFinal;
+
 class viaje {
     protected $tipo;
     public $tarjeta;
