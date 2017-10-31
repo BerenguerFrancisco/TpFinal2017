@@ -23,7 +23,7 @@ class viaje {
         if($this->tipo=='Normal'){
             $this->monto=9.75;
         }
-        if($this->tipo=='Plus' ||$this->tipo=='Gratis' ){
+        if($this->tipo=='Plus' ||$this->tipo=='Gratis'){
             $this->monto=0;
         }
         if($this->tipo=='Medio'){
