@@ -2,9 +2,7 @@
 <?php
 namespace TpFinal;
 use PHPUnit\Framework\TestCase;
-class bicioTest extends TestCase {
+class viajeTest extends TestCase {
     public function testTipoCorrecto() {
-        $bici = new bici(1202010);
-        $this->assertEquals($bici->id,1202010);
     }
 }
