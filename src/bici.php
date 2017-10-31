@@ -2,7 +2,7 @@
 
     namespace TpFinal;
 
-    class Bici{
+    class bici{
     public $id;
     
     function __construct($ingreso)
