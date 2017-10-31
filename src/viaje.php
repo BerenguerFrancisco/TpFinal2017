@@ -3,8 +3,8 @@
 namespace TpFinal;
 class viaje {
     protected $tipo;
-    protected $tarjeta;
-    protected $idTarjeta;
+    public $tarjeta;
+    public $idTarjeta;
     protected $transporte;
     protected $fecha;
     protected $monto;
