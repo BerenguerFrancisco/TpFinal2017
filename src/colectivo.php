@@ -10,8 +10,4 @@ class colectivo {
         $this->linea=$l;
         $this->empresa=$e;
     }
-    public function imprimirLinea() {
-        echo "<li> Linea: ".$this->linea;
 
-    } 
-}
