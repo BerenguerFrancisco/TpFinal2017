@@ -64,6 +64,7 @@ class tarjeta {
                     $this->vp=$this->vp+1;       
                     $this->viaj=$this->viaj+1;
                     $this->viajesrealizados[$this->viaj]=new viaje($hor, "plus", "Colectivo", $this->id);
+                    $bol = new boleto("23:23", "normal", $this->sa, $veh->linea, $this->id);
                     $bol->imprimirboleto(); 
                 }
                 else{
