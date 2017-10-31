@@ -4,8 +4,7 @@ class tarjeta {
     public $sa;
     public $vp;
     public $id;
-    public $bol;
-    public $viajesrealizados;
+    public $viajesrealizados = array();
     
     public function __construct($id){
         $this->id=$id;
@@ -53,8 +52,7 @@ class tarjeta {
                 $this->sa=$this->sa-(9.75*2);
                 $this->vp=0; 
                 }
-            $this->viaj=$this->viaj+1;
-            $this->viajesrealizados[$this->viaj]=new viaje($hor, "normal", "Colectivo", $this->id);
+            array_unshift(($this->viajesrealizados), new viaje($hor, "normal", "Colectivo", $this->id));
             $bol = new boleto("23:23", "normal", $this->sa, $veh->linea, $this->id);
             $bol->imprimirboleto();    
             }
@@ -62,8 +60,7 @@ class tarjeta {
                 $this->sa=$this->sa-9.75;
                 if ($this->vp!=2){
                     $this->vp=$this->vp+1;       
-                    $this->viaj=$this->viaj+1;
-                    $this->viajesrealizados[$this->viaj]=new viaje($hor, "plus", "Colectivo", $this->id);
+                    array_unshift(($this->viajesrealizados), new viaje($hor, "plus", "Colectivo", $this->id));
                     $bol = new boleto("23:23", "normal", $this->sa, $veh->linea, $this->id);
                     $bol->imprimirboleto(); 
                 }
