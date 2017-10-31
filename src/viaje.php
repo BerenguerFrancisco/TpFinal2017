@@ -28,15 +28,10 @@ class viaje {
         if($this->tipo=='Plus' ||$this->tipo=='Gratis'){
             return 0;
         }
-        if($this->tipo=='Medio'){
-            return 4.85;
-        }
         if($this->tipo=='Trasbordo'){
             return 3.20;
         }
-        if($this->tipo=='Medio Trasbordo'){
-            return 1.60;
-        }
+
     }
     public function devolverTipo() {
         return $this->tipo;
