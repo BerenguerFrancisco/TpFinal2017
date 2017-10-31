@@ -64,7 +64,7 @@ class tarjeta {
                         $this->sa=$this->sa-(9.75*2);
                         $this->vp=0; 
                     }
-                    array_unshift(($this->viajesrealizados), new viaje($fec, "Normal", "Colectivo", $this));
+                    array_unshift(($this->viajesrealizados), new viaje( "Normal",$this, "Colectivo",$fec));
                     $bol = new boleto($fec, "normal", $this->sa, $veh->linea, $this->id);
                     $bol->imprimirboleto();
                     $this->colult=$veh;
@@ -74,7 +74,7 @@ class tarjeta {
                     $this->sa=$this->sa-9.75;
                     if ($this->vp!=2){
                         $this->vp=$this->vp+1;       
-                        array_unshift(($this->viajesrealizados), new viaje($fec, "Plus", "Colectivo", $this));
+                        array_unshift(($this->viajesrealizados), new viaje( "Plus",$this, "Colectivo",$fec ));
                         $bol = new boleto($fec, "normal", $this->sa, $veh->linea, $this->id);
                         $bol->imprimirboleto();
                         $this->colult=$veh;
@@ -87,7 +87,7 @@ class tarjeta {
             }
             elseif($this->colult->linea != $veh->linea && ($fec-$this->coldia)<3600){
                 if($this->sa < 3.20 && $this->vp!=2){
-                    array_unshift(($this->viajesrealizados), new viaje($fec, "Plus", "Colectivo", $this));
+                    array_unshift(($this->viajesrealizados), new viaje("Plus",$this, "Colectivo", $fec));
                     $this->colult=$veh;
                     $this->coldia=$fec;
                 }
@@ -96,14 +96,14 @@ class tarjeta {
                 }
                 else{
                     $this->sa = $this->sa - 3.20;
-                    array_unshift(($this->viajesrealizados), new viaje($fec, "Transbordo", "Colectivo", $this));
+                    array_unshift(($this->viajesrealizados), new viaje("Transbordo",$this, "Colectivo",$fec ));
                     $this->colult=$veh;
                     $this->coldia=$fec;
                 }    
             }
             else {
                 if($this->sa < 9.75 && $this->vp!=2){
-                    array_unshift(($this->viajesrealizados), new viaje($fec, "Plus", "Colectivo", $this));
+                    array_unshift(($this->viajesrealizados), new viaje( "Plus",$this, "Colectivo",$fec ));
                     $this->colult=$veh;
                     $this->coldia=$fec;
                 }
@@ -112,7 +112,7 @@ class tarjeta {
                 }
                 else{
                     $this->sa = $this->sa-9.75;
-                    array_unshift(($this->viajesrealizados), new viaje($fec, "Normal", "Colectivo", $this));
+                    array_unshift(($this->viajesrealizados), new viaje( "Normal",$this, "Colectivo",$fec ));
                     $this->colult=$veh;
                     $this->coldia=$fec;
                 }
