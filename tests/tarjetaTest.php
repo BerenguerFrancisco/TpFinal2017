@@ -25,6 +25,24 @@ class tarjetaTest extends TestCase {
         $this->assertEquals($tarjeta->saldo(),388);
     }
     
+    public function carga272() {
+        $tarjeta= new tarjeta("5616");
+        $tarjeta->cargar(272;
+        $this->assertEquals($tarjeta->saldo(),320);
+    }
+    
+    public function carga500() {
+        $tarjeta= new tarjeta("56165");
+        $tarjeta->cargar(500);
+        $this->assertEquals($tarjeta->saldo(),640);
+    }
+    
+    public function carga624() {
+        $tarjeta= new tarjeta("561658")
+        $tarjeta->cargar(624);
+        $this->assertEquals($tarjeta->saldo(),776);
+    }
+    
     public function viaje() {
         $tarjeta= new tarjeta("15643");
         $tarjeta->cargar(50);
