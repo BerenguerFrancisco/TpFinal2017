@@ -50,4 +50,5 @@ class tarjetaTest extends TestCase {
         $tarjeta->pagar($bondi2, "31/10/17 13:21");
         $tarjeta->pagar($bondi2, "31/10/17 13:22");
         $this->assertEquals($tarjeta->saldo(),$sal-22.7);
+    }
 }
