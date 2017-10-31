@@ -14,36 +14,36 @@ class tarjetaTest extends TestCase {
         $this->assertEquals($tarjeta->saldo(), 0);
     }
     
-    public function carga50() {
+    public function testcarga50() {
         $tarjeta= new tarjeta("564");
         $tarjeta->cargar(50);
         $this->assertEquals($tarjeta->saldo(),50);
     }
-    public function carga332() {
+    public function testcarga332() {
         $tarjeta= new tarjeta("561");
         $tarjeta->cargar(332);
         $this->assertEquals($tarjeta->saldo(),388);
     }
     
-    public function carga272() {
+    public function testcarga272() {
         $tarjeta= new tarjeta("5616");
         $tarjeta->cargar(272);
         $this->assertEquals($tarjeta->saldo(),320);
     }
     
-    public function carga500() {
+    public function testcarga500() {
         $tarjeta= new tarjeta("56165");
         $tarjeta->cargar(500);
         $this->assertEquals($tarjeta->saldo(),640);
     }
     
-    public function carga624() {
+    public function testcarga624() {
         $tarjeta= new tarjeta("561658");
         $tarjeta->cargar(624);
         $this->assertEquals($tarjeta->saldo(),776);
     }
     
-    public function viajeplus() {
+    public function testviajeplus() {
         $tarjeta= new tarjeta("1568");
         $bondi= new colectivo(144,"Rosario BUS");
         $tarjeta->pagar($bondi,"28/10/17 20:35");
@@ -53,7 +53,7 @@ class tarjetaTest extends TestCase {
         $this->assertEquals($tarjeta->pagar($bondi2, "28/10/17 21:38"),"Out of money");
     }
     
-    public function viaje() {
+    public function testviaje() {
         $tarjeta= new tarjeta("15643");
         $tarjeta->cargar(50);
         $sal=$tarjeta->saldo();
@@ -68,7 +68,7 @@ class tarjetaTest extends TestCase {
         $tarjeta->pagar($bondi2, "28/10/17 21:25");
         $this->assertEquals($tarjeta->saldo(),$sal-3.20);
     }
-    public function transbordomasviaje() {
+    public function testtransbordomasviaje() {
         $tarjeta= new tarjeta("8962");
         $tarjeta->cargar(50);
         $sal=$tarjeta->saldo();
