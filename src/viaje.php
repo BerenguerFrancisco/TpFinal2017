@@ -13,7 +13,7 @@ class viaje {
         
         $this->tipo=$t;
         $this->tarjeta=$tar;
-        $this->idTarjeta=$tar->id
+        $this->idTarjeta=$tar->id;
         $this->transporte=$trans;
         $this->fecha=$f;
        
