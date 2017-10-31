@@ -2,7 +2,12 @@
 namespace TpFinal;
 use PHPUnit\Framework\TestCase;
 
-$lineas = [
+class colectivoTest extends TestCase {
+    /**
+     * Comprueba que los datos del colectivo sean correcto
+     */
+    public $lineas;
+    $lineas = [
 '101',
 '102',
 '103',
@@ -52,11 +57,6 @@ $lineas = [
 'SUR',
 'CENTRO',
 ];
-
-class colectivoTest extends TestCase {
-    /**
-     * Comprueba que los datos del colectivo sean correcto
-     */
     public function testLineaCorrecta() {
         $bondi = new colectivo('144','Rosario BUS');
         $this->assertContains($bondi->linea,$lineas);
