@@ -45,7 +45,7 @@ class tarjetaTest extends TestCase {
     
     public function testviajeplus() {
         $tarjeta= new tarjeta("1568");
-        $bondi= new colectivo(144,"Rosario BUS");
+        $bondi= new colectivo("144","Rosario BUS");
         $tarjeta->pagar($bondi,"28/10/17 20:35");
         $this->assertEquals($tarjeta->vp,1);
         $tarjeta->pagar($bondi,"28/10/17 20:35");
@@ -57,14 +57,14 @@ class tarjetaTest extends TestCase {
         $tarjeta= new tarjeta("15643");
         $tarjeta->cargar(50);
         $sal=$tarjeta->saldo();
-        $bondi= new colectivo(144,"Rosariobus");
+        $bondi= new colectivo("144","Rosariobus");
         $tarjeta->pagar($bondi, "28/10/17 20:35");
         $this->assertEquals($tarjeta->saldo(),$sal-9.75);
         $sal=$tarjeta->saldo();
         $tarjeta->pagar($bondi, "28/10/17 21:20");
         $this->assertEquals($tarjeta->saldo(),$sal-9.75);
         $sal=$tarjeta->saldo();
-        $bondi2= new colectivo(110,"Rosariobus");
+        $bondi2= new colectivo("110","Rosariobus");
         $tarjeta->pagar($bondi2, "28/10/17 21:25");
         $this->assertEquals($tarjeta->saldo(),$sal-3.20);
     }
@@ -72,8 +72,8 @@ class tarjetaTest extends TestCase {
         $tarjeta= new tarjeta("8962");
         $tarjeta->cargar(50);
         $sal=$tarjeta->saldo();
-        $bondi= new colectivo(144, "Rosariobus");
-        $bondi2= new colectivo(110, "Rosariobus");
+        $bondi= new colectivo("144", "Rosariobus");
+        $bondi2= new colectivo("110", "Rosariobus");
         $tarjeta->pagar($bondi, "31/10/17 13:01");
         $tarjeta->pagar($bondi2, "31/10/17 13:21");
         $tarjeta->pagar($bondi2, "31/10/17 13:22");
