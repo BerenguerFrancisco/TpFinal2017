@@ -3,18 +3,39 @@
 namespace TpFinal;
 class viaje {
     protected $tipo;
-    protected $idtarjeta;
+    protected $tarjeta;
+    protected $idTarjeta;
     protected $transporte;
     protected $fecha;
+    protected $monto;
     
-    public function __construct ($t,$it,$trans,$f) {
+    public function __construct ($t,$tar,$trans,$f) {
         
         $this->tipo=$t;
-        $this->idtarjeta=$it;
+        $this->tarjeta=$tar;
+        $this->idTarjeta=$tar->id
         $this->transporte=$trans;
         $this->fecha=$f;
+       
     }
-    
+    public function calcularMonto(){
+        
+        if($this->tipo=='Normal'){
+            $this->monto=9.75;
+        }
+        if($this->tipo=='Plus'){
+            $this->monto=0;
+        }
+        if($this->tipo=='Medio'){
+            $this->monto=9.75;
+        }
+        if($this->tipo=='Trasbordo'){
+            $this->monto= 3.20;
+        }
+        if($this->tipo=='Medio Trasbordo'){
+            $this->monto=1.60;
+        }
+    }
     public function devolverTipo() {
         return $this->tipo;
     
