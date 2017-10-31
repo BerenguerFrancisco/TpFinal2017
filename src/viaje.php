@@ -16,24 +16,26 @@ class viaje {
         $this->idTarjeta=$tar->id;
         $this->transporte=$trans;
         $this->fecha=$f;
+        $this->monto=$this->calcularMonto();
+        
        
     }
     public function calcularMonto(){
         
         if($this->tipo=='Normal'){
-            $this->monto=9.75;
+            return 9.75;
         }
         if($this->tipo=='Plus' ||$this->tipo=='Gratis'){
-            $this->monto=0;
+            return 0;
         }
         if($this->tipo=='Medio'){
-            $this->monto=4.85;
+            return 4.85;
         }
         if($this->tipo=='Trasbordo'){
-            $this->monto= 3.20;
+            return 3.20;
         }
         if($this->tipo=='Medio Trasbordo'){
-            $this->monto=1.60;
+            return 1.60;
         }
     }
     public function devolverTipo() {
