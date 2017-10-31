@@ -4,7 +4,7 @@ namespace TpFinal;
 
 use PHPUnit\Framework\TestCase;
 
-class bicioTest extends TestCase {
+class biciTest extends TestCase {
 
     public function testTipoCorrecto() {
         $bici = new bici(1202010);
