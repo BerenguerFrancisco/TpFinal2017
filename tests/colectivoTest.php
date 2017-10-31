@@ -58,8 +58,9 @@ class colectivoTest extends TestCase {
         'SUR',
         'CENTRO',
         ];
+        $empresas=['Rosario BUS','EMTR'];
         $bondi = new colectivo('144','Rosario BUS');
         $this->assertContains($bondi->linea,$lineas);
-        $this->assertContains($bondi->empresa,['Rosario BUS','EMTR']);
+        $this->assertContains($bondi->empresa,$empresas);
     }
 }
