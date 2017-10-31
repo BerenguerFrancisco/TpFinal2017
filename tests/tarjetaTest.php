@@ -50,7 +50,7 @@ class tarjetaTest extends TestCase {
         $this->assertEquals($tarjeta->vp,1);
         $tarjeta->pagar($bondi,"28/10/17 20:35");
         $this->assertEquals($tarjeta->vp,2);
-        $this->assertEquals($tarjeta->pagar($bondi2, "28/10/17 21:38"),"Out of money");
+        $this->assertEquals($tarjeta->pagar($bondi, "28/10/17 21:38"),"Out of money");
     }
     
     public function testviaje() {
