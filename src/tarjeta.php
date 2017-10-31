@@ -5,6 +5,9 @@ class tarjeta {
     public $vp;
     public $id;
     public $viajesrealizados = array();
+    public $dia;
+    public $coldia;
+    public $colult;
     
     public function __construct($id){
         $this->id=$id;
@@ -36,40 +39,84 @@ class tarjeta {
     public function pagar($veh,$fec){
         $fec = strtotime($fec);
         if ($veh instanceof bici)
-            {if ($this->sa<9.75){
+            {if ($this->sa<14.625){
                 echo "No tenes más platula ni más viajes plus papu, bajate del colectivo y despedite de tu cuenta\n";
             }
-            if ($this->sa>9.75){
-                $this->sa=$this->sa-9.75;
-                array_unshift(($this->viajesrealizados), new viaje($fec, "Normal", "Bici", $this));
+            if ($this->sa>14.625){
+                if(($fec-$this->dia)>86400){
+                    $this->sa=$this->sa-14.625;
+                    $this->dia = $fec;
+                    array_unshift(($this->viajesrealizados), new viaje($fec, "Normal", "Bici", $this));
+                }
+                else {
+                    array_unshift(($this->viajesrealizados), new viaje($fec, "Gratis", "Bici", $this));
+                }
             }
         }
         elseif ($veh instanceof colectivo){
-            if($this->sa>9.75){
-                $this->sa=$this->sa-9.75;
-            if ($this->vp==1){
-                $this->sa=$this->sa-9.75;
-                $this->vp=0; }       
-            if ($this->vp==2){
-                $this->sa=$this->sa-(9.75*2);
-                $this->vp=0; 
-                }
-            array_unshift(($this->viajesrealizados), new viaje($fec, "normal", "Colectivo", $this));
-            $bol = new boleto($fec, "normal", $this->sa, $veh->linea, $this->id);
-            $bol->imprimirboleto();    
-            }
-            if($this->sa<9.75){
-                $this->sa=$this->sa-9.75;
-                if ($this->vp!=2){
-                    $this->vp=$this->vp+1;       
-                    array_unshift(($this->viajesrealizados), new viaje($fec, "plus", "Colectivo", $this));
+            if(is_null($this->colult)){
+                if($this->sa>9.75){
+                    $this->sa=$this->sa-9.75;
+                    if ($this->vp==1){
+                        $this->sa=$this->sa-9.75;
+                        $this->vp=0; }       
+                    if ($this->vp==2){
+                        $this->sa=$this->sa-(9.75*2);
+                        $this->vp=0; 
+                    }
+                    array_unshift(($this->viajesrealizados), new viaje($fec, "Normal", "Colectivo", $this));
                     $bol = new boleto($fec, "normal", $this->sa, $veh->linea, $this->id);
-                    $bol->imprimirboleto(); 
+                    $bol->imprimirboleto();
+                    $this->colult=$veh;
+                    $this->coldia=$fec;     
+                }
+                if($this->sa<9.75){
+                    $this->sa=$this->sa-9.75;
+                    if ($this->vp!=2){
+                        $this->vp=$this->vp+1;       
+                        array_unshift(($this->viajesrealizados), new viaje($fec, "Plus", "Colectivo", $this));
+                        $bol = new boleto($fec, "normal", $this->sa, $veh->linea, $this->id);
+                        $bol->imprimirboleto();
+                        $this->colult=$veh;
+                        $this->coldia=$fec; 
+                    }
+                    else{
+                        echo "No tiene saldo ni viajes plus";    
+                    }
+                }
+            }
+            elseif($this->colult->linea != $veh->linea && ($fec-$this->coldia)<3600){
+                if($this->sa < 3.20 && $this->vp!=2){
+                    array_unshift(($this->viajesrealizados), new viaje($fec, "Plus", "Colectivo", $this));
+                    $this->colult=$veh;
+                    $this->coldia=$fec;
+                }
+                elseif($this->sa <3.20 && $this->vp==2){
+                    echo "No tiene suficiente saldo ni viajes plus";
                 }
                 else{
-                    echo "No tiene saldo ni viajes plus";    
-                }
+                    $this->sa = $this->sa - 3.20;
+                    array_unshift(($this->viajesrealizados), new viaje($fec, "Transbordo", "Colectivo", $this));
+                    $this->colult=$veh;
+                    $this->coldia=$fec;
+                }    
             }
+            else {
+                if($this->sa < 9.75 && $this->vp!=2){
+                    array_unshift(($this->viajesrealizados), new viaje($fec, "Plus", "Colectivo", $this));
+                    $this->colult=$veh;
+                    $this->coldia=$fec;
+                }
+                elseif($this->sa < 9.75 && $this->vp==2){
+                    echo "No tiene suficiente saldo ni viajes plus";
+                }
+                else{
+                    $this->sa = $this->sa-9.75;
+                    array_unshift(($this->viajesrealizados), new viaje($fec, "Normal", "Colectivo", $this));
+                    $this->colult=$veh;
+                    $this->coldia=$fec;
+                }
+            }    
             
         }
     
