@@ -43,6 +43,17 @@ class tarjetaTest extends TestCase {
         $this->assertEquals($tarjeta->saldo(),776);
     }
     
+    public function viajeplus() {
+        $tarjeta= new tarjeta("1568");
+        $bondi= new colectivo(144,"Rosario BUS");
+        $tarjeta->pagar($bondi,"28/10/17 20:35");
+        $this->assertEquals($tarjeta->vp,1);
+        $tarjeta->pagar($bondi,"28/10/17 20:35");
+        $this->assertEquals($tarjeta->vp,2);
+        $tarjeta->pagar($bondi,"28/10/17 20:35");
+        $this->assertEquals($tarjeta->,2);
+    }
+    
     public function viaje() {
         $tarjeta= new tarjeta("15643");
         $tarjeta->cargar(50);
@@ -55,8 +66,7 @@ class tarjetaTest extends TestCase {
         $this->assertEquals($tarjeta->saldo(),$sal-9.75);
         $sal=$tarjeta->saldo();
         $bondi2= new colectivo(110,"Rosariobus");
-        $tarjeta->pagar($bondi2, "28/10/17 21:30");
-        $this->assertEquals($tarjeta->saldo(),$sal-3.20);
+        $this->assertEquals($tarjeta->pagar($bondi2, "28/10/17 21:30"),"Out of money");
     }
     public function transbordomasviaje() {
         $tarjeta= new tarjeta("8962");
