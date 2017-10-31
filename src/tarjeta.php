@@ -46,10 +46,10 @@ class tarjeta {
                 if(($fec-$this->dia)>86400){
                     $this->sa=$this->sa-14.625;
                     $this->dia = $fec;
-                    array_unshift(($this->viajesrealizados), new viaje($fec, "Normal", "Bici", $this));
+                    array_unshift(($this->viajesrealizados), new viaje( "Normal",$this, "Bici",$fec));
                 }
                 else {
-                    array_unshift(($this->viajesrealizados), new viaje($fec, "Gratis", "Bici", $this));
+                    array_unshift(($this->viajesrealizados), new viaje("Gratis",$this, "Bici",$fec));
                 }
             }
         }
