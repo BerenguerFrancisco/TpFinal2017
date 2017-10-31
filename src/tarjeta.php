@@ -41,7 +41,7 @@ class tarjeta {
             }
             if ($this->sa>9.75){
                 $this->sa=$this->sa-9.75;
-                array_unshift(($this->viajesrealizados), new viaje($fec, "Normal", "Bici", $this->id));
+                array_unshift(($this->viajesrealizados), new viaje($fec, "Normal", "Bici", $this));
             }
         }
         elseif ($veh instanceof colectivo){
@@ -54,7 +54,7 @@ class tarjeta {
                 $this->sa=$this->sa-(9.75*2);
                 $this->vp=0; 
                 }
-            array_unshift(($this->viajesrealizados), new viaje($fec, "normal", "Colectivo", $this->id));
+            array_unshift(($this->viajesrealizados), new viaje($fec, "normal", "Colectivo", $this));
             $bol = new boleto($fec, "normal", $this->sa, $veh->linea, $this->id);
             $bol->imprimirboleto();    
             }
@@ -62,7 +62,7 @@ class tarjeta {
                 $this->sa=$this->sa-9.75;
                 if ($this->vp!=2){
                     $this->vp=$this->vp+1;       
-                    array_unshift(($this->viajesrealizados), new viaje($fec, "plus", "Colectivo", $this->id));
+                    array_unshift(($this->viajesrealizados), new viaje($fec, "plus", "Colectivo", $this));
                     $bol = new boleto($fec, "normal", $this->sa, $veh->linea, $this->id);
                     $bol->imprimirboleto(); 
                 }
