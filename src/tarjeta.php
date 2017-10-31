@@ -97,7 +97,7 @@ class tarjeta {
                 else{
                     $this->sa = $this->sa - 3.20;
                     array_unshift(($this->viajesrealizados), new viaje($fec, "Transbordo", "Colectivo", $this));
-                    $this->colult=$veh;
+                    $this->colult=NULL;
                     $this->coldia=$fec;
                 }    
             }
