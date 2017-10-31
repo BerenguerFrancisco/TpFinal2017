@@ -27,7 +27,7 @@ class viaje {
             $this->monto=0;
         }
         if($this->tipo=='Medio'){
-            $this->monto=9.75;
+            $this->monto=4.85;
         }
         if($this->tipo=='Trasbordo'){
             $this->monto= 3.20;
