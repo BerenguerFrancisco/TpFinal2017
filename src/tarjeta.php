@@ -63,7 +63,9 @@ class tarjeta {
                 if ($this->vp!=2){
                     $this->vp=$this->vp+1;       
                     $this->viaj=$this->viaj+1;
-                    $this->viajesrealizados[$this->viaj]=new viaje($hor, "plus", "Colectivo", $this->id); }
+                    $this->viajesrealizados[$this->viaj]=new viaje($hor, "plus", "Colectivo", $this->id);
+                    $bol->imprimirboleto(); 
+                }
                 else{
                     echo "No tiene saldo ni viajes plus";    
                 }
