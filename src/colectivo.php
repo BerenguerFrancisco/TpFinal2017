@@ -10,4 +10,4 @@ class colectivo {
         $this->linea=$l;
         $this->empresa=$e;
     }
-
+}
