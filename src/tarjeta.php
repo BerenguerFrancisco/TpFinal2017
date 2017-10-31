@@ -104,6 +104,7 @@ class tarjeta {
             else {
                 if($this->sa < 9.75 && $this->vp!=2){
                     array_unshift(($this->viajesrealizados), new viaje( "Plus",$this, "Colectivo",$fec ));
+                    $this->vp=$this-vp+1;
                     $this->colult=$veh;
                     $this->coldia=$fec;
                 }
