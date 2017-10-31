@@ -79,4 +79,24 @@ class tarjetaTest extends TestCase {
         $tarjeta->pagar($bondi2, "31/10/17 13:22");
         $this->assertEquals($tarjeta->saldo(),$sal-22.7);
     }
+    
+    public function testalquilerunabici(){
+        $tarjeta= new tarjeta("156879");
+        $tarjeta->cargar(50);
+        $sal=$tarjeta->saldo();
+        $bike= new bici("156");
+        $tarjeta->pagar($bike, "31/10/17 17:25");
+        $this->assertEquals($tarjeta->saldo(),$sal-14.625);
+    }   
+    
+    public function testalquilervariasbicis() {
+        $tarjeta= new tarjeta("1564189749");
+        $tarjeta->cargar(50);
+        $sal=$tarjeta->saldo();
+        $bike= new bici("156456");
+        $bike2= new bici("51678789");
+        $tarjeta->pagar($bike, "31/10/17 15:26");
+        $tarjeta->pagar($bike2, "31/10/17 20:26");
+        $this->assertEquals($tarjeta->saldo(),$sal-14.625);
+    }
 }
