@@ -42,7 +42,7 @@ class tarjeta {
             if ($this->sa<14.625){
                 return "Out of money";
             }
-            if ($this->sa>14.625){
+            else{
                 if(($fec-$this->dia)>86400){
                     $this->sa=$this->sa-14.625;
                     $this->dia = $fec;
