@@ -54,7 +54,7 @@ class tarjeta {
                 }
             }
         }
-        elseif ($veh instanceof TpFinal\colectivo){
+        elseif ($veh instanceof colectivo){
             if(is_null($this->colult)){
                 if($this->sa>9.75){
                     $this->sa=$this->sa-9.75;
