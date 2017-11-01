@@ -5,7 +5,7 @@ class tarjeta {
     public $vp;
     public $id;
     public $viajesrealizados = array();
-    public $dia;
+    public $dia=0;
     public $coldia;
     public $colult;
     
