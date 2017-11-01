@@ -81,7 +81,7 @@ class tarjetaTest extends TestCase {
     }
     
     public function testalquilerunabici(){
-        $tarjeta= new tarjeta("156879");
+        $tarjeta= new tarjeta("1489");
         $tarjeta->cargar(50);
         $sal=$tarjeta->saldo();
         $bike= new bici("156");
@@ -90,7 +90,7 @@ class tarjetaTest extends TestCase {
     }   
     
     public function testalquilervariasbicis() {
-        $tarjeta= new tarjeta("1564189749");
+        $tarjeta= new tarjeta("1515");
         $tarjeta->cargar(50);
         $sal=$tarjeta->saldo();
         $bike= new bici("156456");
@@ -98,5 +98,11 @@ class tarjetaTest extends TestCase {
         $tarjeta->pagar($bike, "31/10/17 15:26");
         $tarjeta->pagar($bike2, "31/10/17 20:26");
         $this->assertEquals($tarjeta->saldo(),$sal-14.625);
+    }
+    
+    public function testalquilersinplata() {
+        $tarjet= new tarjeta("4444");
+        $bike= new bici("1234");
+        $this->assertEquals($tarjet->pagar($bike, "31/10/17 15:51"),"Out of money");
     }
 }
