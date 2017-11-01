@@ -5,7 +5,7 @@ class tarjeta {
     public $vp;
     public $id;
     public $viajesrealizados = array();
-    public $dia=0;
+    public $dia;
     public $coldia;
     public $colult;
     
@@ -13,6 +13,7 @@ class tarjeta {
         $this->id=$id;
         $this->sa=0;
         $this->vp=0;
+        $this->dia=0;
     }
     public function saldo() {
         return $this->sa;
