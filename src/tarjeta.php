@@ -39,7 +39,7 @@ class tarjeta {
     
     public function pagar($veh,$fec){
         $fec = strtotime($fec);
-        if ($veh instanceof TpFinal\bici){
+        if ($veh instanceof bici){
             if ($this->sa<14.625){
                 return "Out of money";
             }
