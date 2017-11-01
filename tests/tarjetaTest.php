@@ -50,7 +50,7 @@ class tarjetaTest extends TestCase {
         $this->assertEquals($tarjeta->vp,1);
         $tarjeta->pagar($bondi,"28/10/17 20:35");
         $this->assertEquals($tarjeta->vp,2);
-        $this->assertEquals($tarjeta->pagar($bondi, "28/10/17 21:38"),"Out of money");
+        $this->assertEquals($tarjeta->pagar($bondi, "2017/10/28 21:38"),"Out of money");
     }
     
     public function testviaje() {
@@ -58,14 +58,14 @@ class tarjetaTest extends TestCase {
         $tarjeta->cargar(50);
         $sal=$tarjeta->saldo();
         $bondi= new colectivo("144","Rosariobus");
-        $tarjeta->pagar($bondi, "28/10/17 20:35");
+        $tarjeta->pagar($bondi, "2017/10/28 20:35");
         $this->assertEquals($tarjeta->saldo(),$sal-9.75);
         $sal=$tarjeta->saldo();
-        $tarjeta->pagar($bondi, "28/10/17 21:20");
+        $tarjeta->pagar($bondi, "2017/10/2821:20");
         $this->assertEquals($tarjeta->saldo(),$sal-9.75);
         $sal=$tarjeta->saldo();
         $bondi2= new colectivo("110","Rosariobus");
-        $tarjeta->pagar($bondi2, "28/10/17 21:25");
+        $tarjeta->pagar($bondi2, "2017/10/28 21:25");
         $this->assertEquals($tarjeta->saldo(),$sal-3.20);
     }
     public function testtransbordomasviaje() {
@@ -74,9 +74,9 @@ class tarjetaTest extends TestCase {
         $sal=$tarjeta->saldo();
         $bondi= new colectivo("144", "Rosariobus");
         $bondi2= new colectivo("110", "Rosariobus");
-        $tarjeta->pagar($bondi, "31/10/17 13:01");
-        $tarjeta->pagar($bondi2, "31/10/17 13:21");
-        $tarjeta->pagar($bondi2, "31/10/17 13:22");
+        $tarjeta->pagar($bondi, "2017/10/28 13:01");
+        $tarjeta->pagar($bondi2, "2017/10/28 13:21");
+        $tarjeta->pagar($bondi2, "2017/10/28 13:22");
         $this->assertEquals($tarjeta->saldo(),$sal-22.7);
     }
     
@@ -103,6 +103,6 @@ class tarjetaTest extends TestCase {
     public function testalquilersinplata() {
         $tarjet= new tarjeta("4444");
         $bike= new bici("1234");
-        $this->assertEquals($tarjet->pagar($bike, "31/10/17 15:51"),"Out of money");
+        $this->assertEquals($tarjet->pagar($bike, "2017/10/28 15:51"),"Out of money");
     }
 }
