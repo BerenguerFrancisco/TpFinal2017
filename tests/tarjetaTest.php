@@ -85,7 +85,7 @@ class tarjetaTest extends TestCase {
         $tarjeta->cargar(50);
         $sal=$tarjeta->saldo();
         $bike= new bici("156");
-        $tarjeta->pagar($bike, "31/10/17 17:25");
+        $tarjeta->pagar($bike, "2017/10/31 17:25");
         $this->assertEquals($tarjeta->saldo(),$sal-14.625);
     }   
     
@@ -95,8 +95,8 @@ class tarjetaTest extends TestCase {
         $sal=$tarjeta->saldo();
         $bike= new bici("156456");
         $bike2= new bici("51678789");
-        $tarjeta->pagar($bike, "31/10/17 15:26");
-        $tarjeta->pagar($bike2, "31/10/17 20:26");
+        $tarjeta->pagar($bike, "2017/10/31 17:25");
+        $tarjeta->pagar($bike2, "2017/10/31 17:45");
         $this->assertEquals($tarjeta->saldo(),$sal-14.625);
     }
     
