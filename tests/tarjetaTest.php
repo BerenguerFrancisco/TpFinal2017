@@ -99,7 +99,7 @@ class tarjetaTest extends TestCase {
         $bondi= new colectivo("144","Rosariobus");
         $tarjeta->pagar($bondi, "2017/10/28 20:35");
         $bondi2= new colectivo("110","Rosariobus");
-        $this->vp=2;
+        $tarjeta->vp=2;
         $this->assertEquals($tarjeta->pagar($bondi2, "2017/10/28 20:35"),"Out of money");  
     }
     
