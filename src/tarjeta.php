@@ -91,7 +91,6 @@ class tarjeta {
                     array_unshift(($this->viajesrealizados), new viaje("Plus",$this, "Colectivo", $fec));
                     $this->colult=$veh;
                     $this->coldia=$fec;
-                    $this->vp=$this->vp+1;
                 }
                 elseif($this->sa <3.20 && $this->vp==2){
                     return "Out of money";
