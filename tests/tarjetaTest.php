@@ -89,7 +89,7 @@ class tarjetaTest extends TestCase {
         $tarjeta->pagar($bondi, "2017/10/28 20:35");
         $bondi2= new colectivo("110","Rosariobus");
         $tarjeta->pagar($bondi2, "2017/10/28 21:25");
-        $this->assertEquals($tarjeta->vp,1);
+        $this->assertEquals($tarjeta->vp,2);
     }
     
     public function testtransbordo() {
